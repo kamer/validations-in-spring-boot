@@ -1,0 +1,23 @@
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+
+</head>
+
+<body>
+<form role="form" th:object="${customConstraintAnnotation}" th:action="@{/custom-constraint-annotation}" th:method="post">
+
+    <div style="color: red;" th:if="${#fields.hasErrors('*')}">
+        <p><strong>Errors</strong></p>
+        <ul>
+            <li th:each="err : ${#fields.errors('*')}" th:text="${err}"></li>
+        </ul>
+    </div>
+
+    <label>Credit Card Number</label>
+    <br>
+    <input type="text" id="creditCard" name="creditCard" th:field="*{creditCard}">
+    <br>
+    <input type="submit">
+</form>
+</body>
+</html>

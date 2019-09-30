@@ -1,0 +1,23 @@
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+
+</head>
+
+<body>
+<form role="form" th:object="${combiningMultipleAnnotations}" th:action="@{/combined-constraint}" th:method="post">
+
+    <div style="color: red;" th:if="${#fields.hasErrors('*')}">
+        <p><strong>Errors</strong></p>
+        <ul>
+            <li th:each="err : ${#fields.errors('*')}" th:text="${err}"></li>
+        </ul>
+    </div>
+
+    <label>Password</label>
+    <br>
+    <input type="password" id="creditCard" name="creditCard" th:field="*{password}">
+    <br>
+    <input type="submit">
+</form>
+</body>
+</html>

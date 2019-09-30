@@ -1,0 +1,25 @@
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+
+</head>
+
+<body>
+<form role="form" th:object="${customValidationEntity}" th:action="@{/custom-validator}" th:method="post">
+
+    <div style="color: red;" th:if="${#fields.hasErrors('*')}">
+        <p><strong>Errors</strong></p>
+        <ul>
+            <li th:each="err : ${#fields.errors('*')}" th:text="${err}"></li>
+        </ul>
+    </div>
+
+    <lable>Email</lable>
+    <input type="text" id="email" name="email" th:field="*{email}">
+    <br>
+    <lable>Department Id</lable>
+    <input type="text" id="departmentId" name="departmentId" th:field="*{departmentId}">
+    <br>
+    <input type="submit">
+</form>
+</body>
+</html>

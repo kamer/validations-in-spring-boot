@@ -1,0 +1,40 @@
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+
+</head>
+
+<body>
+<form role="form" th:object="${javaxValidationConstraints}" th:action="@{/javax-constraints}" th:method="post">
+
+    <div style="color: red;" th:if="${#fields.hasErrors('*')}">
+        <p><strong>Errors</strong></p>
+        <ul>
+            <li th:each="err : ${#fields.errors('*')}" th:text="${err}"></li>
+        </ul>
+    </div>
+
+    <lable>Name</lable>
+    <input type="text" id="name" name="name" th:field="*{name}">
+    <br>
+    <lable>Experience in Years</lable>
+    <input type="text" id="experienceInYears" name="experienceInYears" th:field="*{experienceInYears}">
+    <br>
+    <lable>Number of Children</lable>
+    <input type="text" id="numberOfChildren" name="numberOfChildren" th:field="*{numberOfChildren}">
+    <br>
+    <lable>Surname</lable>
+    <input type="text" id="surname" name="surname" th:field="*{surname}">
+    <br>
+    <lable>Date of Birth</lable>
+    <input type="text" id="dateOfBirth" name="dateOfBirth" th:field="*{dateOfBirth}">
+    <br>
+    <lable>Card Number</lable>
+    <input type="text" id="cardNumber" name="cardNumber" th:field="*{cardNumber}">
+    <br>
+    <lable>Email</lable>
+    <input type="text" id="email" name="email" th:field="*{email}">
+    <br>
+    <input type="submit">
+</form>
+</body>
+</html>
